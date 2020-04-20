@@ -6,17 +6,20 @@ import io.github.campanula.utils.proxy.CAbstractBeforeProxyHandle;
 import io.github.campanula.utils.proxy.CAbstractProxyHandler;
 import io.github.campanula.utils.proxy.param.CProxyAfterParam;
 import io.github.campanula.utils.proxy.param.CProxyBeforeParam;
+import net.sf.cglib.proxy.InvocationHandler;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 
-public class CInvocationHandler<T> extends CAbstractProxyHandler<T> {
+public class CInvocationHandler<T> extends CAbstractProxyHandler<T> implements InvocationHandler {
 
     public CInvocationHandler(T t, CAbstractBeforeProxyHandle<T> before, CAbstractAfterProxyHandle<T> after) {
         super(t, before, after);
     }
 
-    //@Override
-    public Object invoke(Object proxy, Method method, Object[] args) {
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object invoke = null;
 
         try {
@@ -45,5 +48,4 @@ public class CInvocationHandler<T> extends CAbstractProxyHandler<T> {
 
         return invoke;
     }
-
 }
