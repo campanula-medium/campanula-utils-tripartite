@@ -11,10 +11,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 在掉用方法之前进行对代理对象字段赋值
+ * 在方法上要加
+ * @see CFieldAssign
+ * @param <T> 要处理的对象类型
+ */
 public class CFieldAssignHandle<T> extends CAbstractBeforeProxyHandle<T> {
 
     private Map<String, CFieldAssignMethod<?>> value;
 
+    /**
+     * 实例方法 需要传入要赋值的字段以及赋值的方法 不能为空
+     * @param getValueMethod 字段以及字段赋值的方法
+     * @throws CampanulaRuntimeException 有空或者重发会抛出
+     */
     public CFieldAssignHandle(final List<CFieldAssignMethod<?>> getValueMethod) {
         final Map<String, CFieldAssignMethod<?>> value = new HashMap<>();
         CListUtil.consumeThrows(() -> getValueMethod,

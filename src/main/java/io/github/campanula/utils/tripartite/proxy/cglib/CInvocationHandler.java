@@ -12,6 +12,10 @@ import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 
+/**
+ * 实现cglib的代理方法
+ * @param <T> 要代理的对象
+ */
 public class CInvocationHandler<T> extends CAbstractProxyHandler<T> implements InvocationHandler {
 
     public CInvocationHandler(T t, CAbstractBeforeProxyHandle<T> before, CAbstractAfterProxyHandle<T> after) {
