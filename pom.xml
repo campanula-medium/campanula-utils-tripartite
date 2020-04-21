@@ -6,7 +6,7 @@
 
     <groupId>io.github.campanula-medium</groupId>
     <artifactId>utils-tripartite</artifactId>
-    <version>1.0.0-SNAPSHOOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>campanula-util-tripartite</name>
